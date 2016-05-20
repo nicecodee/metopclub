@@ -18,20 +18,13 @@ def Content():
 
 
     # MAIN : [TITLE, URL, BODY_TEXT (LIST), HINTS(LIST)]
-    TOPIC_DICT = {"Basics":[["Python Introduction","/introduction-to-python-programming/"],
-                            ["Writing to a File","/writing-file-python-3-basics/"],
-                            ["Appending Files","/appending-file-python-3-tutorial/"],
-                            ["Reading from Files","/reading-file-python-3-tutorial/"],
-                            ["Classes","/classes-python-3-basics-tutorial/"],
-                            ["Python 2to3 for Converting Python 2 scripts to Python 3","/converting-python2-to-python3-2to3/"]]
-                  
-                            }
-
+    TOPIC_DICT = {'Basics':[['base1','/base1-file/'],['base2','/base2-file/']],
+					'Test': [['test1','/test1-directory/'],['test2','/test2-directory/']]}
 
     return TOPIC_DICT
 
 
-
+	
 
 
 
