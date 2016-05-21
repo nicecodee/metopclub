@@ -12,27 +12,29 @@
 <header>
 	 <div class="navbar-header">
       <a class="navbar-brand" href="/">
-		<img style="max-width:85px; margin-top: -7px" src="{{ url_for('static', filename='images/mainlogo.jpg') }}">
+		<img style="max-width:90px; margin-top: -7px" src="{{ url_for('static', filename='images/mainlogo.jpg') }}">
 	  </a>
     </div>
 	
 	<div class="container-fluid">
 		<a href="/dashboard/">
-			<button type="button" class="btn btn-primary" aria-label="Left Align" style="margin-top: 5px; margin-bottom:5px; height: 34px; margin-right: 15px">
+			<button type="button" class="btn btn-primary" aria-label="Left Align" style="margin-top: 5px; margin-bottom:5px; height: 44px; margin-right: 15px">
 			<span class="glyphicon glyphicon-off" aria-hidden="true"> Start learning</span>
 			</button>
 		</a>
 
-	</div>
-	
-	<div style="margin-right:15px; margin-left: 15px; margin-top:-15px; margin-bottom:5px" class="container-fluid">
 		<ul class="nav navbar-nav navbar-right">
-			<!-- support -->
-			<a href="/support-donate/"><span class="glyphicon glyphicon-heart"></span> Support </a>
-			<!-- Login -->
-			<a href="/login/"><span class="glyphicon glyphicon-log-in"></span> Login </a>
-			<!-- Signup -->
-			<a href="/register/"><span class="glyphicon glyphicon-log-out"></span> Signup </a>
+			<div style="margin-right:10px; margin-left: 15px; margin-top:5px; margin-bottom:5px" class="container-fluid">
+				<h5>
+				{% if session.logged_in %}
+					<a href="/userinfo/"><span class="glyphicon glyphicon-user"></span> {{session.username}}</a>
+					<a href="/logout/"><span class="glyphicon glyphicon-log-out"></span> Logout </a>
+				{% else %}
+					<a href="/login/"><span class="glyphicon glyphicon-log-in"></span> Login </a>
+					<a href="/register/"><span class="glyphicon glyphicon-pencil"></span> Signup </a>
+				{% endif %}
+				</h5>
+			</div>
 		</ul>
 	</div>
 </header>
@@ -40,7 +42,7 @@
 <body>
 	<br>
 	<br>
-	<div class="container" style="max-width:90%">
+	<div class="container" style="min-height:100%; max-width:80%">
 		{% with messages = get_flashed_messages() %}
 			{% if messages %}
 				{% for msg in messages %}

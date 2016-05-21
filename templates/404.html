@@ -1,9 +1,15 @@
 {% extends "layout.html" %}
 
 {% block body %}
-	<div style="margin-right:115px; margin-left: 115px" class="container-fluid">
-		<h2>Woops, page does not exist!!(404)</h2>
-		<br>
-		<a href="/"><span class="glyphicon glyphicon-arrow-left"></span> Go Back</a>
-	</div>
+
+	<h4>Woops, page does not exist!!(404)</h4>
+	<br>
+
+	{% if session.logged_in %}
+		<a href="/dashboard/"><span class="glyphicon glyphicon-arrow-left"></span> Go Back</a>
+	{% else %}
+		<a href="/"><span class="glyphicon glyphicon-arrow-left"></span> Go Home</a>
+	{% endif %}
+		
+
 {% endblock %}
